@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from 'react-hot-toast';
 import { useActivityContext } from '../../Hooks/useActivityContext';
 import { archiveActivity } from '../../Utils/activity';
+import userAvatarImg from '../../assets/user-avatar.svg'
 
 const Loader = () => {
     return <div className="min-h-[75vh] rounded-lg flex flex-col items-center justify-start w-full animate-pulse bg-base-300" >
@@ -74,7 +75,7 @@ const FeedDetailPage = () => {
                     <div className='bg-secondary shadow-sm p-3 mb-4 rounded-md flex flex-col items-center w-[620px]'>
                         <div className="avatar">
                             <div className="w-24 rounded-full border border-neutral-800">
-                            <img src="/src/assets/user-avatar.svg" />
+                            <img src={userAvatarImg} alt="User Avatar" />
                             </div>
                         </div>
                         <h2 className='text-2xl font-semibold '>{username}</h2>  
