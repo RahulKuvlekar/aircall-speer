@@ -4,6 +4,7 @@ import { Fragment, useState } from "react";
 import FeedItem from "../Feed/FeedItem";
 import { unArchiveAllFeeds } from "../../Utils/activity";
 import { toast } from 'react-hot-toast';
+import Loader from "../UI/Loader";
 
 const ArchivePage = () => {
     const {activityState:{archives,loading},dispatchActivity} = useActivityContext()
@@ -34,7 +35,7 @@ const ArchivePage = () => {
         <button disabled={loadingAll} className='disabled:cursor-not-allowed' onClick={unArchiveAllFeedHandler} >UNarchived All</button>
         </div>
         {(() => {
-            if(loading) return <h1>Loading</h1>
+            if(loading) return <Loader amount={6} key={'archiveloader'} />
             else if(archivedFeed.length > 0) return (<Fragment>
                 {archivedFeed.map((feed)=> <FeedItem key={`archiveitem-${feed.id}`} feed={feed} />)}
             </Fragment >)
